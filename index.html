@@ -8,199 +8,160 @@
     <style>
         :root { 
             --primary: #1a365d; 
-            --secondary: #2c5282;
             --accent: #f6ad55; 
             --text: #2d3748; 
             --light-bg: #f7fafc; 
+            --white: #ffffff;
         }
 
-        /* Basic Reset & Animations */
-        * { box-sizing: border-box; }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
 
         body { 
             font-family: 'Open Sans', sans-serif; 
-            line-height: 1.8; 
-            margin: 0; 
-            color: var(--text); 
-            background: var(--light-bg); 
-            overflow-x: hidden;
+            margin: 0; color: var(--text); background: var(--light-bg); 
+            line-height: 1.7; overflow-x: hidden;
         }
 
-        /* Eye-Catching Header */
+        /* --- Eye-Catching Hero --- */
         header { 
-            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
-            color: white; 
-            padding: 5rem 1rem; 
-            text-align: center; 
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #2b6cb0 100%);
+            color: white; padding: 6rem 1.5rem; text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
         }
 
-        h1 { 
-            font-family: 'Montserrat', sans-serif;
-            margin: 0; 
-            font-size: 3.5rem; 
-            font-weight: 800;
-            letter-spacing: -2px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin: 0; letter-spacing: -1px; }
+        .subtitle { font-size: 1.2rem; font-weight: 600; opacity: 0.9; margin-top: 10px; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+        /* --- Intro Section --- */
+        .bio-box { 
+            background: var(--white); padding: 3rem; border-radius: 20px; 
+            margin-top: -80px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--accent);
         }
 
-        header p { font-size: 1.2rem; opacity: 0.9; font-weight: 600; }
+        /* --- Scroll Animation Styles --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
-
-        /* Animated Bio Section */
-        .bio-section { 
-            background: white; 
-            padding: 3rem; 
-            border-radius: 20px; 
-            margin-top: -80px; 
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); 
-            animation: fadeInUp 0.8s ease-out;
+        /* --- The Three Pillars Section --- */
+        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 4rem 0; }
+        .pillar-card { 
+            background: var(--white); padding: 2.5rem; border-radius: 15px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center;
+            transition: 0.3s; border-bottom: 4px solid transparent;
         }
+        .pillar-card:hover { border-bottom: 4px solid var(--accent); transform: translateY(-10px); }
+        .pillar-card h3 { font-family: 'Montserrat', sans-serif; color: var(--primary); margin-top: 1rem; }
+        .icon { font-size: 3rem; }
 
-        h2 { 
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary); 
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
+        /* --- Explaining ICC & Bridges --- */
+        .explainer { background: var(--primary); color: white; padding: 3rem; border-radius: 20px; margin: 4rem 0; }
+        .explainer h2 { color: var(--accent); border: none; font-family: 'Montserrat'; }
 
-        .quote { 
-            font-style: italic; 
-            color: #4a5568; 
-            border-left: 5px solid var(--accent); 
-            padding: 1rem 1.5rem; 
-            margin: 2rem 0; 
-            font-size: 1.2rem; 
-            background: #fffaf0;
-            border-radius: 0 10px 10px 0;
-        }
+        /* --- Ministry Updates (Posts) --- */
+        .post { background: var(--white); padding: 2.5rem; border-radius: 20px; margin-bottom: 3rem; box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+        .post-tag { background: #ebf8ff; color: #2b6cb0; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; }
+        img.post-image { width: 100%; border-radius: 15px; margin: 1.5rem 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-        /* Bold Support Cards */
-        .support-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
-            gap: 1.5rem; 
-            margin: 2.5rem 0; 
-        }
-
-        .support-card { 
-            background: white; 
-            padding: 1.5rem; 
-            border-radius: 15px; 
-            border: 2px solid #e2e8f0;
-            text-align: center;
-            font-weight: 800;
-            font-family: 'Montserrat', sans-serif;
-            transition: all 0.3s ease;
-            color: var(--secondary);
-        }
-
-        .support-card:hover { 
-            border-color: var(--accent);
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(246, 173, 85, 0.2);
-        }
-
-        /* Styled Button */
+        /* --- Call to Action --- */
+        .cta-section { text-align: center; background: #fffaf0; padding: 4rem 2rem; border-radius: 20px; border: 2px dashed var(--accent); }
         .btn { 
-            display: inline-block; 
-            background: var(--accent); 
-            color: white; 
-            padding: 1.2rem 3rem; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            box-shadow: 0 10px 15px rgba(246, 173, 85, 0.4);
+            display: inline-block; background: var(--accent); color: white; padding: 1.2rem 3rem; 
+            text-decoration: none; border-radius: 50px; font-family: 'Montserrat', sans-serif;
+            font-weight: 800; text-transform: uppercase; transition: 0.3s; margin-top: 1rem;
         }
-
-        .btn:hover { 
-            background: #ed8936; 
-            transform: scale(1.05);
-            box-shadow: 0 15px 20px rgba(246, 173, 85, 0.6);
-        }
-
-        /* Post Styling */
-        .post { 
-            background: white; 
-            padding: 2.5rem; 
-            border-radius: 20px; 
-            margin-top: 3rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .post-date { font-weight: 700; color: var(--accent); text-transform: uppercase; font-size: 0.8rem; }
-
-        img.post-image { 
-            width: 100%; 
-            border-radius: 15px; 
-            margin: 1.5rem 0; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+        .btn:hover { transform: scale(1.05); background: #ed8936; box-shadow: 0 10px 20px rgba(246, 173, 85, 0.4); }
 
         .footer { text-align: center; padding: 5rem 1rem; color: #a0aec0; }
 
-        /* Responsive Tweak */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            .bio-section { padding: 1.5rem; }
-        }
+        @media (max-width: 600px) { h1 { font-size: 2.2rem; } .bio-box { padding: 1.5rem; } }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Amith Samuel Pasam</h1>
-    <p>Building Bridges at the University of Bridgeport</p>
+    <p class="subtitle">Building Bridges for International Students in Bridgeport, CT</p>
 </header>
 
 <div class="container">
-    <div class="bio-section">
-        <h2>My Mission</h2>
-        <div class="quote">
-            "The Lord has been my strength and guide through every trial... My life’s mission is to help others experience the same hope."
-        </div>
-        <p>I was born and raised in <strong>India</strong>, and today, I serve as a Ministry Representative with ISI. Having navigated the challenges of a new country myself, I am passionate about helping international students find their identity and purpose in Christ.</p>
-        
-        <div class="support-grid">
-            <div class="support-card">$50</div>
-            <div class="support-card">$75</div>
-            <div class="support-card">$100</div>
-        </div>
+    <section class="bio-box reveal">
+        <h2>My Mission Since 2021</h2>
+        <p>I moved from India to the US to serve. Having navigated the stress and loneliness of a new country myself, I am passionate about helping international students at the <strong>University of Bridgeport</strong> find their identity and purpose in Christ.</p>
+        <p><em>"The Lord has been my strength... my mission is to help others experience that same hope."</em></p>
+    </section>
 
-        <div style="text-align: center;">
-            <a href="#" class="btn">Partner With Me</a>
+    <div class="pillar-grid">
+        <div class="pillar-card reveal">
+            <div class="icon">🚗</div>
+            <h3>Practical Support</h3>
+            <p>We show Christ's love through grocery trips, driving lessons, and English help. We meet practical needs to build a foundation of trust.</p>
+        </div>
+        <div class="pillar-card reveal">
+            <div class="icon">🏠</div>
+            <h3>Genuine Community</h3>
+            <p>From sledding trips and karaoke to museum visits, we create a "home away from home" where students become family.</p>
+        </div>
+        <div class="pillar-card reveal">
+            <div class="icon">📖</div>
+            <h3>Spiritual Growth</h3>
+            <p>We provide safe spaces like Discovery Bible Studies for curious students to explore the love and truth of Jesus for themselves.</p>
         </div>
     </div>
 
-    <div class="post">
-        <span class="post-date">February 12, 2026</span>
-        <h2>Snow Days & Sledding ❄️</h2>
+    <section class="explainer reveal">
+        <h2>Who are Bridges & ICC?</h2>
+        <p><strong>Bridges International:</strong> A global community serving international students through service, friendship, and leadership development.</p>
+        <p><strong>ICC (International Campus Church):</strong> Our local church partner in Bridgeport. It is a multi-national family where students lead worship and grow together.</p>
+    </section>
+
+    <h2 style="text-align: center; font-family: 'Montserrat'; margin: 4rem 0 2rem;">Life on Campus</h2>
+
+    <div class="post reveal">
+        <span class="post-tag">Community in Action</span>
+        <h3>When God Sends Snow, We Go Sledding! ❄️</h3>
         <img src="snow-day.jpg" alt="Snow Day" class="post-image">
-        <p>For many of our students, this was their first time ever seeing snow. We didn't just see it—we conquered the hills! Ministry is often found in the unplanned, joyful moments of shared life.</p>
+        <p>Students from Vietnam, India, and Egypt saw snow for the first time! This is more than a snow day—it's about building a community of Christ-following people through shared joy.</p>
     </div>
 
-    <div class="post">
-        <span class="post-date">February 9, 2026</span>
-        <h2>Welcoming New Faces</h2>
-        <img src="welcome.jpg" alt="Orientation" class="post-image">
-        <p>We've hit the ground running with Welcome Dinners and Orientation. It is a joy to see new students from Vietnam, China, and beyond find a home here.</p>
+    <div class="post reveal">
+        <span class="post-tag">Worship @ ICC</span>
+        <h3>Leading with Courage</h3>
+        <img src="worship.jpg" alt="Christmas Service" class="post-image">
+        <p>At **International Campus Church (ICC)**, we don't just attend; we serve. Watching students step onto a stage for the first time to lead worship is a reminder of how God transforms hearts.</p>
     </div>
+
+    <section class="cta-section reveal">
+        <h2>Partner with the Mission</h2>
+        <p>Your support provides the resources—the rides, the meals, and the Bibles—that make this ministry possible. Would you consider a monthly partnership?</p>
+        <div style="display: flex; justify-content: space-around; margin: 1.5rem 0; font-weight: 800; color: var(--primary); font-family: 'Montserrat';">
+            <span>$50</span><span>$75</span><span>$100</span>
+        </div>
+        <a href="YOUR_GOOGLE_FORM_LINK" class="btn">Become a Partner</a>
+    </section>
 
     <div class="footer">
-        © 2026 Amith Samuel Pasam | ISI Bridgeport <br>
-        <em>"All Nations, One Family"</em>
+        © 2026 Amith Samuel Pasam | ISI & Bridges International
     </div>
 </div>
+
+<script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 100;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal(); // Initial check
+</script>
 
 </body>
 </html>
