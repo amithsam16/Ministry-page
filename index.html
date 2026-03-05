@@ -3,44 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bridges Ministry | University of Bridgeport</title>
+    <title>Amith Samuel Pasam | Bridges Ministry</title>
     <style>
-        :root { --primary: #2c5282; --accent: #f6ad55; --text: #2d3748; }
-        body { font-family: -apple-system, sans-serif; line-height: 1.6; margin: 0; color: var(--text); background: #f7fafc; }
-        header { background: var(--primary); color: white; padding: 2rem 1rem; text-align: center; }
+        :root { --primary: #2c5282; --accent: #f6ad55; --text: #2d3748; --bg: #f7fafc; }
+        body { font-family: -apple-system, system-ui, sans-serif; line-height: 1.6; margin: 0; color: var(--text); background: var(--bg); }
+        header { background: var(--primary); color: white; padding: 3rem 1rem; text-align: center; }
         .container { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
-        .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 2rem; }
-        h1, h2 { color: var(--primary); }
-        header h1 { color: white; margin: 0; }
-        .btn { display: inline-block; background: var(--accent); color: white; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 1rem; }
-        .footer { text-align: center; font-size: 0.9rem; color: #718096; padding: 2rem; }
-        img { max-width: 100%; border-radius: 5px; }
+        .bio-section { background: white; padding: 2rem; border-radius: 12px; margin-top: -50px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 4px solid var(--accent); }
+        .post { background: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .post-date { color: #718096; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        h1 { margin: 0; font-size: 2.2rem; }
+        h2 { color: var(--primary); margin-top: 0; }
+        .btn-group { text-align: center; margin: 2rem 0; }
+        .btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; transition: transform 0.2s; }
+        .btn:hover { transform: translateY(-2px); }
+        img.post-image { width: 100%; height: auto; border-radius: 8px; margin: 1rem 0; background: #edf2f7; display: block; }
+        .footer { text-align: center; padding: 3rem; color: #a0aec0; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Bridges Ministry</h1>
-    <p>Building Family at the University of Bridgeport</p>
+    <h1>Amith Samuel Pasam</h1>
+    <p>Ministering in Bridgeport, CT</p>
 </header>
 
 <div class="container">
-    <div class="card">
-        <h2>❄️ When God Sends Snow, We Go Sledding!</h2>
-        <p>A few weeks ago, a massive snowstorm shut down the city. We grabbed sleds and headed to the hills! For many students from Vietnam, India, and Egypt, it was their first time ever seeing snow. Watching their faces go from unsure to flying down the hill laughing was the highlight of my semester.</p>
-        <p><em>"Ministry doesn’t always have to be programmed. It can be as simple as sharing a snow day with people who are becoming family."</em></p>
+    <div class="bio-section">
+        <h2>About My Mission</h2>
+        <p>Since 2021, I have had the privilege of serving as a Ministry Representative with <strong>International Students Inc. (ISI)</strong>. My heart is for the students at the University of Bridgeport, helping them find a "home away from home" through our Bridges community.</p>
+        <p>We welcome students from all nations, offering friendship, practical help, and the opportunity to experience the love of Jesus during their time in the States.</p>
     </div>
 
-    <div class="card">
-        <h2>🤝 Join the Mission</h2>
-        <p>Your prayers and support make these "home away from home" moments possible for international students.</p>
-        <a href="#" class="btn">Connect With Me & Support</a>
-        <a href="https://www.bridgesfriends.com/" class="btn" style="background:#4a5568;">More Updates</a>
+    <div class="btn-group">
+        <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn">Partner With Me (Pray or Give)</a>
     </div>
-</div>
 
-<div class="footer">
-    © 2026 Bridges Ministry - University of Bridgeport
+    <div class="post">
+        <span class="post-date">February 12, 2026</span>
+        <h2>When God Sends Snow, We Go Sledding! ❄️</h2>
+        <img src="snow-day.jpg" alt="Sledding fun" class="post-image">
+        <p>A few weeks ago we got that huge snowstorm that shut everything down. We grabbed sleds and turned it into a sledding day! For almost every student who came, it was their first time they’d ever seen snow like this. Watching their faces was the best part—flying down the hill laughing in the powder.</p>
+    </div>
+
+    <div class="post">
+        <span class="post-date">February 9, 2026</span>
+        <h2>Welcoming New Faces</h2>
+        <img src="welcome.jpg" alt="Welcome Dinner" class="post-image">
+        <p>This new semester is underway with Orientation and Welcome Dinners. Despite changing visa policies, we are choosing gratitude for every student God brings our way. We’ve been delighted to connect with many new faces from Vietnam and China!</p>
+    </div>
+
+    <div class="post">
+        <span class="post-date">December 26, 2025</span>
+        <h2>Christmas Eve at ICC</h2>
+        <img src="worship.jpg" alt="Worship Team" class="post-image">
+        <p>One of the deepest joys was leading a small group of guys in worship. For most, it was their first time on a platform. Their voices rose with sincerity and courage, reminding us that Christ’s coming changes everything.</p>
+    </div>
+
+    <div class="footer">
+        © 2026 Amith Samuel Pasam | Bridges UB
+    </div>
 </div>
 
 </body>
