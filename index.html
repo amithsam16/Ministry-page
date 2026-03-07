@@ -17,7 +17,7 @@
 
         body { 
             font-family: 'Open Sans', sans-serif; 
-            margin: 0; color: var(--text); background: #000; /* Dark base for better fades */
+            margin: 0; color: var(--text); background: #111;
             line-height: 1.8; overflow-x: hidden;
         }
 
@@ -29,7 +29,8 @@
             z-index: -1;
             background-size: cover;
             background-position: center;
-            filter: blur(8px) brightness(0.4); /* Blurs and darkens for readability */
+            /* Filter adjusted: reduced blur and increased brightness for visibility */
+            filter: blur(4px) brightness(0.6); 
             transition: opacity 1s ease-in-out, background-image 1s ease-in-out;
             opacity: 0;
         }
@@ -38,20 +39,35 @@
 
         /* --- Hero Header --- */
         header { 
-            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(43, 108, 176, 0.8) 100%);
-            color: white; padding: 8rem 1.5rem 10rem 1.5rem; text-align: center;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.7) 0%, rgba(43, 108, 176, 0.6) 100%), url('cover.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white; padding: 6rem 1.5rem 8rem 1.5rem; text-align: center;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; margin: 0; letter-spacing: -1px; }
-        .subtitle { font-size: 1.3rem; font-weight: 600; opacity: 0.9; margin-top: 10px; }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--accent);
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin: 0; letter-spacing: -1px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .subtitle { font-size: 1.2rem; font-weight: 600; opacity: 0.9; margin-top: 10px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
 
         .container { max-width: 850px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 2; }
 
         /* --- Content Blocks --- */
         .bio-box { 
-            background: var(--white); padding: 3.5rem; border-radius: 20px; 
-            margin-top: -100px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+            background: var(--white); padding: 3rem; border-radius: 20px; 
+            margin-top: -60px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
             border-top: 8px solid var(--accent);
         }
 
@@ -60,14 +76,13 @@
             line-height: 1.4; margin-bottom: 2rem; text-align: center;
         }
 
-        /* Scroll Animations */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease-out; margin-bottom: 4rem; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 5rem 0; }
-        .pillar-card { background: var(--white); padding: 2.5rem; border-radius: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .pillar-card { background: var(--white); padding: 2rem; border-radius: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         
-        .explainer { background: rgba(26, 54, 93, 0.95); color: white; padding: 3rem; border-radius: 25px; margin: 5rem 0; backdrop-filter: blur(5px); }
+        .explainer { background: rgba(26, 54, 93, 0.9); color: white; padding: 3rem; border-radius: 25px; margin: 5rem 0; backdrop-filter: blur(5px); }
         .explainer h2 { color: var(--accent); font-family: 'Montserrat'; margin-top: 0; }
 
         .post { background: var(--white); padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
@@ -75,7 +90,7 @@
 
         .cta-box { text-align: center; background: var(--white); padding: 4rem 2rem; border-radius: 30px; border: 3px dashed var(--accent); margin-bottom: 5rem; }
         .btn { 
-            display: inline-block; background: var(--accent); color: white; padding: 1.3rem 3.5rem; 
+            display: inline-block; background: var(--accent); color: white; padding: 1.2rem 3rem; 
             text-decoration: none; border-radius: 50px; font-family: 'Montserrat', sans-serif;
             font-weight: 800; text-transform: uppercase; transition: 0.3s;
         }
@@ -83,7 +98,7 @@
 
         .footer { text-align: center; padding: 4rem 1rem; color: #fff; font-weight: 600; text-shadow: 1px 1px 5px #000; }
 
-        @media (max-width: 600px) { h1 { font-size: 2.3rem; } .bio-box { padding: 1.8rem; } }
+        @media (max-width: 600px) { h1 { font-size: 2rem; } .profile-pic { width: 120px; height: 120px; } }
     </style>
 </head>
 <body>
@@ -91,6 +106,7 @@
 <div id="bg-handler" class="bg-layer"></div>
 
 <header>
+    <img src="profilepic.jpg" alt="Amith Samuel Pasam" class="profile-pic">
     <h1>Amith Samuel Pasam</h1>
     <p class="subtitle">International Students Inc. | Bridgeport, CT</p>
 </header>
@@ -135,12 +151,10 @@
     </div>
 
     <section class="cta-box reveal" data-bg="bg6.jpg">
-        <h2>Join the Mission</h2>
-        <p>Would you consider a monthly gift to reach the nations in Bridgeport?</p>
-        <div style="display: flex; justify-content: space-around; margin: 2rem 0; font-weight: 800; font-family: Montserrat;">
-            <span>$50/mo</span><span>$75/mo</span><span>$100/mo</span>
-        </div>
-        <a href="YOUR_GOOGLE_FORM_LINK" class="btn">Partner With Me</a>
+        <h2 style="font-family:Montserrat; color:var(--primary)">Partner With the Mission</h2>
+        <p>Above all, I ask for your prayers as I serve the nations in Bridgeport. Prayer is my first priority, as it is through God's strength that we see hearts transformed and students finding hope.</p>
+        <p>Financial support is also a huge help in this ministry, allowing us to buy meals, groceries, and gas for student trips. If you feel led to give, your support directly fuels these practical acts of love.</p>
+        <a href="YOUR_GOOGLE_FORM_LINK" class="btn">Partner Through Prayer & Support</a>
     </section>
 
     <div class="footer">
@@ -154,10 +168,8 @@
 
     function updateBackground() {
         let currentBg = "";
-        
         sections.forEach(section => {
             const rect = section.getBoundingClientRect();
-            // If the section is near the middle of the screen
             if (rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3) {
                 currentBg = section.getAttribute('data-bg');
                 section.classList.add('active');
@@ -171,7 +183,6 @@
     }
 
     window.addEventListener('scroll', updateBackground);
-    // Initialize
     updateBackground();
 </script>
 
