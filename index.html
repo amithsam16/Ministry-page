@@ -21,7 +21,7 @@
             line-height: 1.8; overflow-x: hidden;
         }
 
-        /* --- Background Image Layer --- */
+        /* --- Background Image Layer (Clear & Visible) --- */
         .bg-layer {
             position: fixed;
             top: 0; left: 0;
@@ -29,8 +29,8 @@
             z-index: -1;
             background-size: cover;
             background-position: center;
-            /* Filter adjusted: reduced blur and increased brightness for visibility */
-            filter: blur(4px) brightness(0.6); 
+            /* Blur removed, brightness set to show the photos clearly */
+            filter: brightness(0.7); 
             transition: opacity 1s ease-in-out, background-image 1s ease-in-out;
             opacity: 0;
         }
@@ -39,7 +39,7 @@
 
         /* --- Hero Header --- */
         header { 
-            background: linear-gradient(135deg, rgba(26, 54, 93, 0.7) 0%, rgba(43, 108, 176, 0.6) 100%), url('cover.jpg');
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.6) 0%, rgba(43, 108, 176, 0.5) 100%), url('cover.jpg');
             background-size: cover;
             background-position: center;
             color: white; padding: 6rem 1.5rem 8rem 1.5rem; text-align: center;
@@ -50,55 +50,52 @@
         }
 
         .profile-pic {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 5px solid var(--accent);
+            border: 6px solid var(--accent);
             margin-bottom: 20px;
             object-fit: cover;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin: 0; letter-spacing: -1px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .subtitle { font-size: 1.2rem; font-weight: 600; opacity: 0.9; margin-top: 10px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+        h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; margin: 0; letter-spacing: -1px; text-shadow: 2px 2px 15px rgba(0,0,0,0.6); }
+        .subtitle { font-size: 1.3rem; font-weight: 600; opacity: 0.9; margin-top: 10px; text-shadow: 1px 1px 8px rgba(0,0,0,0.6); }
 
         .container { max-width: 850px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 2; }
 
         /* --- Content Blocks --- */
         .bio-box { 
-            background: var(--white); padding: 3rem; border-radius: 20px; 
-            margin-top: -60px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.98); padding: 3.5rem; border-radius: 20px; 
+            margin-top: -60px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
             border-top: 8px solid var(--accent);
         }
 
         .testimony-quote { 
-            font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--primary);
+            font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--primary);
             line-height: 1.4; margin-bottom: 2rem; text-align: center;
         }
 
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease-out; margin-bottom: 4rem; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease-out; margin-bottom: 5rem; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 5rem 0; }
-        .pillar-card { background: var(--white); padding: 2rem; border-radius: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .pillar-card { background: rgba(255, 255, 255, 0.95); padding: 2.5rem; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
         
-        .explainer { background: rgba(26, 54, 93, 0.9); color: white; padding: 3rem; border-radius: 25px; margin: 5rem 0; backdrop-filter: blur(5px); }
-        .explainer h2 { color: var(--accent); font-family: 'Montserrat'; margin-top: 0; }
+        .explainer { background: rgba(26, 54, 93, 0.92); color: white; padding: 3.5rem; border-radius: 25px; margin: 5rem 0; backdrop-filter: blur(3px); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
+        .explainer h2 { color: var(--accent); font-family: 'Montserrat'; margin-top: 0; font-size: 2rem; }
 
-        .post { background: var(--white); padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        img.post-image { width: 100%; border-radius: 15px; margin: 1.5rem 0; object-fit: cover; }
-
-        .cta-box { text-align: center; background: var(--white); padding: 4rem 2rem; border-radius: 30px; border: 3px dashed var(--accent); margin-bottom: 5rem; }
+        .cta-box { text-align: center; background: rgba(255, 255, 255, 0.98); padding: 4.5rem 2.5rem; border-radius: 30px; border: 3px dashed var(--accent); margin-bottom: 6rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         .btn { 
-            display: inline-block; background: var(--accent); color: white; padding: 1.2rem 3rem; 
+            display: inline-block; background: var(--accent); color: white; padding: 1.4rem 3.5rem; 
             text-decoration: none; border-radius: 50px; font-family: 'Montserrat', sans-serif;
-            font-weight: 800; text-transform: uppercase; transition: 0.3s;
+            font-weight: 800; text-transform: uppercase; transition: 0.3s; font-size: 1.1rem;
         }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 15px 25px rgba(246, 173, 85, 0.6); }
+        .btn:hover { transform: scale(1.05); background: #ed8936; box-shadow: 0 15px 25px rgba(246, 173, 85, 0.6); }
 
-        .footer { text-align: center; padding: 4rem 1rem; color: #fff; font-weight: 600; text-shadow: 1px 1px 5px #000; }
+        .footer { text-align: center; padding: 5rem 1rem; color: #fff; font-weight: 600; text-shadow: 2px 2px 10px #000; }
 
-        @media (max-width: 600px) { h1 { font-size: 2rem; } .profile-pic { width: 120px; height: 120px; } }
+        @media (max-width: 600px) { h1 { font-size: 2.2rem; } .profile-pic { width: 130px; height: 130px; } }
     </style>
 </head>
 <body>
@@ -121,39 +118,27 @@
 
     <div class="pillar-grid reveal" data-bg="bg2.jpg">
         <div class="pillar-card">
-            <span style="font-size:3rem">🤝</span>
+            <span style="font-size:3.5rem">🤝</span>
             <h3>Practical Support</h3>
             <p>Grocery trips, driving lessons, and English help build a foundation of trust.</p>
         </div>
         <div class="pillar-card">
-            <span style="font-size:3rem">🏡</span>
+            <span style="font-size:3.5rem">🏡</span>
             <h3>Community</h3>
-            <p>From sledding to karaoke, we create a "home away from home" for all nations.</p>
+            <p>From social events to shared meals, we create a "home away from home" for all nations.</p>
         </div>
     </div>
 
     <section class="explainer reveal" data-bg="bg3.jpg">
         <h2>Who are Bridges & ICC?</h2>
-        <p><strong>Bridges International:</strong> Service, friendship, and spiritual growth for international students.</p>
-        <p><strong>ICC (International Campus Church):</strong> A multi-national family where students lead, serve, and grow together.</p>
+        <p><strong>Bridges International:</strong> A global community dedicated to service, friendship, and leadership development for international students.</p>
+        <p style="margin-top: 1.5rem;"><strong>ICC (International Campus Church):</strong> Our local church partner in Bridgeport—a multi-national family where students lead, serve, and grow together.</p>
     </section>
 
-    <div class="post reveal" data-bg="bg4.jpg">
-        <h2 style="font-family:Montserrat; color:var(--primary)">Sledding Day! ❄️</h2>
-        <img src="snow-day.jpg" alt="Sledding" class="post-image">
-        <p>Sharing life’s joyful moments with students from Vietnam, India, and beyond.</p>
-    </div>
-
-    <div class="post reveal" data-bg="bg5.jpg">
-        <h2 style="font-family:Montserrat; color:var(--primary)">Worship at ICC</h2>
-        <img src="worship.jpg" alt="Worship" class="post-image">
-        <p>Watching students step bravely into leadership reminds us of God's transformative power.</p>
-    </div>
-
-    <section class="cta-box reveal" data-bg="bg6.jpg">
-        <h2 style="font-family:Montserrat; color:var(--primary)">Partner With the Mission</h2>
-        <p>Above all, I ask for your prayers as I serve the nations in Bridgeport. Prayer is my first priority, as it is through God's strength that we see hearts transformed and students finding hope.</p>
-        <p>Financial support is also a huge help in this ministry, allowing us to buy meals, groceries, and gas for student trips. If you feel led to give, your support directly fuels these practical acts of love.</p>
+    <section class="cta-box reveal" data-bg="bg4.jpg">
+        <h2 style="font-family: 'Montserrat'; color: var(--primary); margin-top: 0;">Partner With the Mission</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Above all, I ask for your prayers as I serve the international student community in Bridgeport. Prayer is my first priority and the greatest gift you can offer, as we trust God to open hearts and provide spiritual transformation.</p>
+        <p style="font-size: 1.1rem; margin-bottom: 2.5rem;">Financial support is also a significant help in sustaining this local ministry. Your contributions allow us to provide essential meals, groceries, and transportation for students, showing them the love of Christ through practical service.</p>
         <a href="YOUR_GOOGLE_FORM_LINK" class="btn">Partner Through Prayer & Support</a>
     </section>
 
@@ -170,6 +155,7 @@
         let currentBg = "";
         sections.forEach(section => {
             const rect = section.getBoundingClientRect();
+            // Trigger background change when section is centered
             if (rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3) {
                 currentBg = section.getAttribute('data-bg');
                 section.classList.add('active');
@@ -183,6 +169,7 @@
     }
 
     window.addEventListener('scroll', updateBackground);
+    window.addEventListener('load', updateBackground);
     updateBackground();
 </script>
 
