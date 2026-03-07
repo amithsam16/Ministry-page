@@ -14,76 +14,53 @@
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; margin: 0; color: var(--text); background: #1a202c; line-height: 1.8; overflow-x: hidden; }
 
-        body { 
-            font-family: 'Open Sans', sans-serif; 
-            margin: 0; color: var(--text); background: #000; /* Dark base for better fades */
-            line-height: 1.8; overflow-x: hidden;
-        }
-
-        /* --- Background Image Layer --- */
+        /* --- BACKGROUND LAYER --- */
         .bg-layer {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            background-size: cover;
-            background-position: center;
-            filter: blur(8px) brightness(0.4); /* Blurs and darkens for readability */
-            transition: opacity 1s ease-in-out, background-image 1s ease-in-out;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-size: cover; background-position: center;
+            /* CHANGE 10px TO 20px OR 30px FOR MORE BLUR */
+            filter: blur(15px) brightness(0.3); 
+            transition: opacity 1.2s ease-in-out, background-image 1.2s ease-in-out;
             opacity: 0;
         }
-
         .bg-layer.active { opacity: 1; }
 
-        /* --- Hero Header --- */
         header { 
-            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(43, 108, 176, 0.8) 100%);
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.95) 0%, rgba(43, 108, 176, 0.9) 100%);
             color: white; padding: 8rem 1.5rem 10rem 1.5rem; text-align: center;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
         }
 
-        h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; margin: 0; letter-spacing: -1px; }
-        .subtitle { font-size: 1.3rem; font-weight: 600; opacity: 0.9; margin-top: 10px; }
+        h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; margin: 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 2; }
 
-        .container { max-width: 850px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 2; }
-
-        /* --- Content Blocks --- */
         .bio-box { 
-            background: var(--white); padding: 3.5rem; border-radius: 20px; 
-            margin-top: -100px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+            background: var(--white); padding: 3rem; border-radius: 20px; 
+            margin-top: -100px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.4);
             border-top: 8px solid var(--accent);
         }
 
-        .testimony-quote { 
-            font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--primary);
-            line-height: 1.4; margin-bottom: 2rem; text-align: center;
-        }
-
-        /* Scroll Animations */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease-out; margin-bottom: 4rem; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease-out; margin-bottom: 5rem; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 5rem 0; }
-        .pillar-card { background: var(--white); padding: 2.5rem; border-radius: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        
-        .explainer { background: rgba(26, 54, 93, 0.95); color: white; padding: 3rem; border-radius: 25px; margin: 5rem 0; backdrop-filter: blur(5px); }
-        .explainer h2 { color: var(--accent); font-family: 'Montserrat'; margin-top: 0; }
+        /* --- SERVICES SECTION --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .service-category { background: rgba(255, 255, 255, 0.95); padding: 2rem; border-radius: 15px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .service-category h4 { font-family: 'Montserrat'; color: var(--primary); margin-top: 0; border-bottom: 2px solid var(--accent); display: inline-block; }
+        .service-list { list-style: none; padding: 0; font-size: 0.95rem; }
+        .service-list li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+        .service-list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
 
-        .post { background: var(--white); padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        img.post-image { width: 100%; border-radius: 15px; margin: 1.5rem 0; object-fit: cover; }
+        .org-card { background: rgba(255, 255, 255, 0.95); padding: 2.5rem; border-radius: 20px; margin-bottom: 2rem; border-left: 10px solid var(--primary); }
+        .org-card h3 { font-family: 'Montserrat', sans-serif; color: var(--primary); margin-top: 0; }
 
-        .cta-box { text-align: center; background: var(--white); padding: 4rem 2rem; border-radius: 30px; border: 3px dashed var(--accent); margin-bottom: 5rem; }
-        .btn { 
-            display: inline-block; background: var(--accent); color: white; padding: 1.3rem 3.5rem; 
-            text-decoration: none; border-radius: 50px; font-family: 'Montserrat', sans-serif;
-            font-weight: 800; text-transform: uppercase; transition: 0.3s;
-        }
+        .cta-box { text-align: center; background: var(--white); padding: 4rem 2rem; border-radius: 30px; border: 3px dashed var(--accent); }
+        .btn { display: inline-block; background: var(--accent); color: white; padding: 1.3rem 3.5rem; text-decoration: none; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase; transition: 0.3s; }
         .btn:hover { transform: scale(1.05); box-shadow: 0 15px 25px rgba(246, 173, 85, 0.6); }
 
-        .footer { text-align: center; padding: 4rem 1rem; color: #fff; font-weight: 600; text-shadow: 1px 1px 5px #000; }
-
-        @media (max-width: 600px) { h1 { font-size: 2.3rem; } .bio-box { padding: 1.8rem; } }
+        .footer { text-align: center; padding: 5rem 1rem; color: #fff; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -92,54 +69,62 @@
 
 <header>
     <h1>Amith Samuel Pasam</h1>
-    <p class="subtitle">International Students Inc. | Bridgeport, CT</p>
+    <p>Ministering to the Nations at University of Bridgeport</p>
 </header>
 
 <div class="container">
     <section class="bio-box reveal" data-bg="bg1.jpg">
-        <div class="testimony-quote">
-            "The Lord has been my strength and guide through every trial... My life’s mission is to help others experience the same hope."
-        </div>
-        <p>I was born and raised in <strong>India</strong>. Today, I serve as a Ministry Representative with ISI at the University of Bridgeport. I am passionate about helping international students find their identity and purpose in Christ.</p>
+        <h2 style="font-family:Montserrat; color:var(--primary)">My Testimony</h2>
+        <p>I moved from India to serve international students. My mission is to help others experience the hope and transformation I found in Christ through every trial and triumph.</p>
     </section>
 
-    <div class="pillar-grid reveal" data-bg="bg2.jpg">
-        <div class="pillar-card">
-            <span style="font-size:3rem">🤝</span>
-            <h3>Practical Support</h3>
-            <p>Grocery trips, driving lessons, and English help build a foundation of trust.</p>
+    <div class="reveal" data-bg="bg2.jpg">
+        <div class="org-card">
+            <h3>What is Bridges?</h3>
+            <p>Bridges International is a global community that welcomes and serves the million-plus international students in the U.S. We create a "home away from home" through service, friendship, and leadership development.</p>
         </div>
-        <div class="pillar-card">
-            <span style="font-size:3rem">🏡</span>
-            <h3>Community</h3>
-            <p>From sledding to karaoke, we create a "home away from home" for all nations.</p>
+        <div class="org-card" style="border-left-color: var(--accent);">
+            <h3>What is ICC?</h3>
+            <p>International Campus Church (ICC) is our multi-national church family in Bridgeport. It is a place where students lead worship, serve, and grow together in their faith journey.</p>
         </div>
     </div>
 
-    <section class="explainer reveal" data-bg="bg3.jpg">
-        <h2>Who are Bridges & ICC?</h2>
-        <p><strong>Bridges International:</strong> Service, friendship, and spiritual growth for international students.</p>
-        <p><strong>ICC (International Campus Church):</strong> A multi-national family where students lead, serve, and grow together.</p>
+    <section class="reveal" data-bg="bg3.jpg">
+        <h2 style="text-align: center; font-family: Montserrat; color: white;">How I Can Support You</h2>
+        <div class="services-grid">
+            <div class="service-category">
+                <h4>Practical Help</h4>
+                <ul class="service-list">
+                    <li>Free driving lessons & Car buying help</li>
+                    <li>Grocery trips & Tuition assistance help</li>
+                    <li>Airport pickup/drop-off & Medical transport</li>
+                    <li>Affordable housing & Landlord trouble support</li>
+                </ul>
+            </div>
+            <div class="service-category">
+                <h4>Career & Culture</h4>
+                <ul class="service-list">
+                    <li>Job search & Networking help</li>
+                    <li>Resume writing & Interview practice</li>
+                    <li>Career mentorship & Academic support</li>
+                    <li>"Intro to American Culture" training</li>
+                </ul>
+            </div>
+            <div class="service-category">
+                <h4>Health & Spiritual</h4>
+                <ul class="service-list">
+                    <li>Licensed mental healthcare access</li>
+                    <li>Licensed immigration lawyer access</li>
+                    <li>Conflict resolution training</li>
+                    <li>Spiritual direction & Mentorship</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
-    <div class="post reveal" data-bg="bg4.jpg">
-        <h2 style="font-family:Montserrat; color:var(--primary)">Sledding Day! ❄️</h2>
-        <img src="snow-day.jpg" alt="Sledding" class="post-image">
-        <p>Sharing life’s joyful moments with students from Vietnam, India, and beyond.</p>
-    </div>
-
-    <div class="post reveal" data-bg="bg5.jpg">
-        <h2 style="font-family:Montserrat; color:var(--primary)">Worship at ICC</h2>
-        <img src="worship.jpg" alt="Worship" class="post-image">
-        <p>Watching students step bravely into leadership reminds us of God's transformative power.</p>
-    </div>
-
-    <section class="cta-box reveal" data-bg="bg6.jpg">
+    <section class="cta-box reveal" data-bg="bg4.jpg">
         <h2>Join the Mission</h2>
-        <p>Would you consider a monthly gift to reach the nations in Bridgeport?</p>
-        <div style="display: flex; justify-content: space-around; margin: 2rem 0; font-weight: 800; font-family: Montserrat;">
-            <span>$50/mo</span><span>$75/mo</span><span>$100/mo</span>
-        </div>
+        <p>Your partnership makes these services free for students. Would you consider a monthly gift?</p>
         <a href="YOUR_GOOGLE_FORM_LINK" class="btn">Partner With Me</a>
     </section>
 
@@ -153,26 +138,22 @@
     const sections = document.querySelectorAll('.reveal');
 
     function updateBackground() {
-        let currentBg = "";
-        
+        let activeBg = "";
         sections.forEach(section => {
             const rect = section.getBoundingClientRect();
-            // If the section is near the middle of the screen
-            if (rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3) {
-                currentBg = section.getAttribute('data-bg');
+            if (rect.top < window.innerHeight * 0.6 && rect.bottom > window.innerHeight * 0.4) {
+                activeBg = section.getAttribute('data-bg');
                 section.classList.add('active');
             }
         });
-
-        if (currentBg) {
-            bgHandler.style.backgroundImage = `url('${currentBg}')`;
+        if (activeBg) {
+            bgHandler.style.backgroundImage = "url('" + activeBg + "')";
             bgHandler.classList.add('active');
         }
     }
 
     window.addEventListener('scroll', updateBackground);
-    // Initialize
-    updateBackground();
+    window.addEventListener('load', updateBackground);
 </script>
 
 </body>
