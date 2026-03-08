@@ -21,7 +21,7 @@
             line-height: 1.8; overflow-x: hidden;
         }
 
-        /* --- Background Image Layer (Clear & Visible) --- */
+        /* --- Background Layer (Clear & Visible) --- */
         .bg-layer {
             position: fixed;
             top: 0; left: 0;
@@ -29,8 +29,7 @@
             z-index: -1;
             background-size: cover;
             background-position: center;
-            /* Blur removed, brightness set to show the photos clearly */
-            filter: brightness(0.7); 
+            filter: brightness(0.65); 
             transition: opacity 1s ease-in-out, background-image 1s ease-in-out;
             opacity: 0;
         }
@@ -39,7 +38,7 @@
 
         /* --- Hero Header --- */
         header { 
-            background: linear-gradient(135deg, rgba(26, 54, 93, 0.6) 0%, rgba(43, 108, 176, 0.5) 100%), url('cover.jpg');
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.7) 0%, rgba(43, 108, 176, 0.6) 100%), url('cover.jpg');
             background-size: cover;
             background-position: center;
             color: white; padding: 6rem 1.5rem 8rem 1.5rem; text-align: center;
@@ -62,7 +61,7 @@
         h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; margin: 0; letter-spacing: -1px; text-shadow: 2px 2px 15px rgba(0,0,0,0.6); }
         .subtitle { font-size: 1.3rem; font-weight: 600; opacity: 0.9; margin-top: 10px; text-shadow: 1px 1px 8px rgba(0,0,0,0.6); }
 
-        .container { max-width: 850px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 2; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 2; }
 
         /* --- Content Blocks --- */
         .bio-box { 
@@ -79,13 +78,16 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease-out; margin-bottom: 5rem; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 5rem 0; }
-        .pillar-card { background: rgba(255, 255, 255, 0.95); padding: 2.5rem; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        
+        /* --- Pillar Grid --- */
+        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 5rem 0; }
+        .pillar-card { background: rgba(255, 255, 255, 0.96); padding: 2.5rem; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .pillar-card h3 { font-family: 'Montserrat', sans-serif; color: var(--primary); font-size: 1.5rem; margin: 15px 0; }
+        .icon { font-size: 3.5rem; }
+
         .explainer { background: rgba(26, 54, 93, 0.92); color: white; padding: 3.5rem; border-radius: 25px; margin: 5rem 0; backdrop-filter: blur(3px); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
         .explainer h2 { color: var(--accent); font-family: 'Montserrat'; margin-top: 0; font-size: 2rem; }
 
-        .cta-box { text-align: center; background: rgba(255, 255, 255, 0.98); padding: 4.5rem 2.5rem; border-radius: 30px; border: 3px dashed var(--accent); margin-bottom: 6rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .cta-box { text-align: center; background: rgba(255, 255, 255, 0.98); padding: 4rem 2.5rem; border-radius: 30px; border: 3px dashed var(--accent); margin-bottom: 6rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         .btn { 
             display: inline-block; background: var(--accent); color: white; padding: 1.4rem 3.5rem; 
             text-decoration: none; border-radius: 50px; font-family: 'Montserrat', sans-serif;
@@ -118,21 +120,26 @@
 
     <div class="pillar-grid reveal" data-bg="bg2.jpg">
         <div class="pillar-card">
-            <span style="font-size:3.5rem">🤝</span>
-            <h3>Practical Support</h3>
-            <p>Grocery trips, driving lessons, and English help build a foundation of trust.</p>
+            <span class="icon">🤝</span>
+            <h3>Meet New Friends</h3>
+            <p>It can be hard to meet people when you arrive in the US, but we want you to have a place you can belong! We have regular gatherings, fun events like hiking and painting, and many opportunities to connect.</p>
         </div>
         <div class="pillar-card">
-            <span style="font-size:3.5rem">🏡</span>
-            <h3>Community</h3>
-            <p>From social events to shared meals, we create a "home away from home" for all nations.</p>
+            <span class="icon">🚗</span>
+            <h3>Practical Support</h3>
+            <p>We want you to thrive! Whether you need someone to practice English with, a ride to the store, or someone to show you around Connecticut, we are here to help. Contact us if you have a need!</p>
+        </div>
+        <div class="pillar-card">
+            <span class="icon">✝️</span>
+            <h3>Spiritual Growth</h3>
+            <p>Becoming an international student is a perfect chance to discover new things about life and faith. We offer resources on spiritual questions and regular times to discuss topics from the Bible about God and life.</p>
         </div>
     </div>
 
     <section class="explainer reveal" data-bg="bg3.jpg">
         <h2>Who are Bridges & ICC?</h2>
         <p><strong>Bridges International:</strong> A global community dedicated to service, friendship, and leadership development for international students.</p>
-        <p style="margin-top: 1.5rem;"><strong>ICC (International Campus Church):</strong> Our local church partner in Bridgeport—a multi-national family where students lead, serve, and grow together.</p>
+        <p style="margin-top: 1.5rem;"><strong>ICC (International Campus Church):</strong> A weekly church service run by international students, for international students. Join us to find worship, community, or just to see what a church is like!</p>
     </section>
 
     <section class="cta-box reveal" data-bg="bg4.jpg">
@@ -155,7 +162,6 @@
         let currentBg = "";
         sections.forEach(section => {
             const rect = section.getBoundingClientRect();
-            // Trigger background change when section is centered
             if (rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3) {
                 currentBg = section.getAttribute('data-bg');
                 section.classList.add('active');
