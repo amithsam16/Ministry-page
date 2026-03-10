@@ -3,59 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amith and Nicole | Bridges UB</title>
+    <title>Amith & Nicole | Bridges UB</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root { 
             --primary: #1a365d; 
             --accent: #f6ad55; 
+            --give-btn: #2f855a; 
             --text: #2d3748; 
             --white: #ffffff;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; margin: 0; color: var(--text); background: #111; line-height: 1.8; overflow-x: hidden; }
 
-        body { 
-            font-family: 'Open Sans', sans-serif; 
-            margin: 0; color: var(--text); background: #111;
-            line-height: 1.8; overflow-x: hidden;
-        }
-
-        /* --- Background Layer (Clear & Visible) --- */
         .bg-layer {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            background-size: cover;
-            background-position: center;
-            filter: brightness(0.65); 
-            transition: opacity 1s ease-in-out, background-image 1s ease-in-out;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-size: cover; background-position: center;
+            filter: brightness(0.65); transition: opacity 1s ease-in-out, background-image 1s ease-in-out;
             opacity: 0;
         }
-
         .bg-layer.active { opacity: 1; }
 
-        /* --- Hero Header --- */
         header { 
             background: linear-gradient(135deg, rgba(26, 54, 93, 0.7) 0%, rgba(43, 108, 176, 0.6) 100%), url('cover.jpg');
-            background-size: cover;
-            background-position: center;
+            background-size: cover; background-position: center;
             color: white; padding: 6rem 1.5rem 8rem 1.5rem; text-align: center;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: flex; flex-direction: column; align-items: center;
         }
 
+        /* --- LARGE PROFILE CIRCLE --- */
         .profile-pic {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            border: 6px solid var(--accent);
-            margin-bottom: 20px;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 250px; 
+            height: 250px; 
+            border-radius: 50%; border: 8px solid var(--accent);
+            margin-bottom: 20px; object-fit: cover; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            position: relative; z-index: 5;
         }
 
         h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; margin: 0; letter-spacing: -1px; text-shadow: 2px 2px 15px rgba(0,0,0,0.6); }
@@ -63,11 +48,9 @@
 
         .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 2; }
 
-        /* --- Content Blocks --- */
         .bio-box { 
             background: rgba(255, 255, 255, 0.98); padding: 3.5rem; border-radius: 20px; 
-            margin-top: -60px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            border-top: 8px solid var(--accent);
+            margin-top: -60px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); border-top: 8px solid var(--accent);
         }
 
         .testimony-quote { 
@@ -78,32 +61,33 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease-out; margin-bottom: 5rem; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* --- Pillar Grid --- */
         .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 5rem 0; }
         .pillar-card { background: rgba(255, 255, 255, 0.96); padding: 2.5rem; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .pillar-card h3 { font-family: 'Montserrat', sans-serif; color: var(--primary); font-size: 1.5rem; margin: 15px 0; }
-        .icon { font-size: 3.5rem; }
+        
+        .explainer { background: rgba(26, 54, 93, 0.92); color: white; padding: 3.5rem; border-radius: 25px; margin: 5rem 0; backdrop-filter: blur(3px); }
 
-        .explainer { background: rgba(26, 54, 93, 0.92); color: white; padding: 3.5rem; border-radius: 25px; margin: 5rem 0; backdrop-filter: blur(3px); box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
-        .explainer h2 { color: var(--accent); font-family: 'Montserrat'; margin-top: 0; font-size: 2rem; }
+        .cta-box { text-align: center; background: rgba(255, 255, 255, 0.98); padding: 4rem 2.5rem; border-radius: 30px; border: 3px dashed var(--accent); margin-bottom: 6rem; }
+        
+        .btn-group { display: flex; flex-direction: column; gap: 1rem; align-items: center; margin-top: 2rem; }
 
-        .cta-box { text-align: center; background: rgba(255, 255, 255, 0.98); padding: 4rem 2.5rem; border-radius: 30px; border: 3px dashed var(--accent); margin-bottom: 6rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         .btn { 
-            display: inline-block; background: var(--accent); color: white; padding: 1.4rem 3.5rem; 
+            display: inline-block; padding: 1.2rem 3rem; 
             text-decoration: none; border-radius: 50px; font-family: 'Montserrat', sans-serif;
             font-weight: 800; text-transform: uppercase; transition: 0.3s; font-size: 1.1rem;
+            width: 100%; max-width: 400px;
         }
-        .btn:hover { transform: scale(1.05); background: #ed8936; box-shadow: 0 15px 25px rgba(246, 173, 85, 0.6); }
 
-        .footer { text-align: center; padding: 5rem 1rem; color: #fff; font-weight: 600; text-shadow: 2px 2px 10px #000; }
+        .btn-partner { background: var(--accent); color: white; }
+        .btn-give { background: var(--give-btn); color: white; }
+
+        .btn:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); opacity: 0.9; }
+
+        .footer { text-align: center; padding: 5rem 1rem; color: #fff; font-weight: 600; }
 
         @media (max-width: 600px) { 
-    h1 { font-size: 2.2rem; } 
-    .profile-pic { 
-        width: 180px; /* Smaller size for phones */
-        height: 180px; 
-    } 
-}
+            h1 { font-size: 2.2rem; } 
+            .profile-pic { width: 200px; height: 200px; } 
+        }
     </style>
 </head>
 <body>
@@ -111,59 +95,62 @@
 <div id="bg-handler" class="bg-layer"></div>
 
 <header>
-    <img src="profilepic.jpg" alt="Amith Samuel Pasam" class="profile-pic">
-    <h1>Amith Samuel Pasam</h1>
-    <p class="subtitle">International Students Inc. | Bridgeport, CT</p>
+    <img src="profilepic.jpg" alt="Amith and Nicole" class="profile-pic">
+    <h1>Amith & Nicole</h1>
+    <p class="subtitle">ISI Ministry Representative & Volunteer | Bridgeport, CT</p>
 </header>
 
 <div class="container">
     <section class="bio-box reveal" data-bg="bg1.jpg">
         <div class="testimony-quote">
-            "The Lord has been my strength and guide through every trial... My life’s mission is to help others experience the same hope."
+            "We are passionate about helping international students find their identity and purpose in Christ through holistic care."
         </div>
-        <p>I was born and raised in <strong>India</strong>. Today, I serve as a Ministry Representative with ISI at the University of Bridgeport. I am passionate about helping international students find their identity and purpose in Christ.</p>
+        <p>Serving with ISI at the University of Bridgeport, we are dedicated to creating a space where every student feels seen and supported. Amith serves as a full-time Ministry Representative, and Nicole partners as a volunteer to welcome students from every nation. Driven by the love of Christ, we seek to meet the physical, emotional, and spiritual needs of those far from home.</p>
     </section>
 
     <div class="pillar-grid reveal" data-bg="bg2.jpg">
         <div class="pillar-card">
-            <span class="icon">🤝</span>
+            <span style="font-size:3.5rem">🤝</span>
             <h3>Meet New Friends</h3>
-            <p>It can be hard to meet people when you arrive in the US, but we want you to have a place you can belong! We have regular gatherings, fun events like hiking and painting, and many opportunities to connect.</p>
+            <p>We want you to have a place you can belong! Together, we host gatherings, fun events, and social opportunities to connect you with fellow students and the local community.</p>
         </div>
         <div class="pillar-card">
-            <span class="icon">🚗</span>
+            <span style="font-size:3.5rem">🚗</span>
             <h3>Practical Support</h3>
-            <p>We want you to thrive! Whether you need someone to practice English with, a ride to the store, or someone to show you around Connecticut, we are here to help. Contact us if you have a need!</p>
+            <p>Whether you need someone to practice English with, a ride to the store, or help navigating Connecticut, we are here for you. Our goal is to see you thrive during your studies!</p>
         </div>
         <div class="pillar-card">
-            <span class="icon">✝️</span>
+            <span style="font-size:3.5rem">✝️</span>
             <h3>Spiritual Growth</h3>
-            <p>Becoming an international student is a perfect chance to discover new things about life and faith. We offer resources on spiritual questions and regular times to discuss topics from the Bible about God and life.</p>
+            <p>Explore life’s biggest questions in a safe, welcoming environment. We offer resources and regular Bible discussions to help you discover God’s wisdom for your life.</p>
         </div>
     </div>
 
     <section class="explainer reveal" data-bg="bg3.jpg">
-        <h2>Who are Bridges & ICC?</h2>
-        <p><strong>Bridges International:</strong> A global community dedicated to service, friendship, and leadership development for international students.</p>
-        <p style="margin-top: 1.5rem;"><strong>ICC (International Campus Church):</strong> A weekly church service run by international students, for international students. Join us to find worship, community, or just to see what a church is like!</p>
+        <h2>Bridges & ICC</h2>
+        <p><strong>Bridges International:</strong> Our community for service and leadership development. We work to provide a "home away from home" for international students.</p>
+        <p style="margin-top: 1.5rem;"><strong>ICC (International Campus Church):</strong> A weekly student-led church service where we worship and grow together as a multi-national family of faith.</p>
     </section>
 
     <section class="cta-box reveal" data-bg="bg4.jpg">
-        <h2 style="font-family: 'Montserrat'; color: var(--primary); margin-top: 0;">Partner With the Mission</h2>
-        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Above all, I ask for your prayers as I serve the international student community in Bridgeport. Prayer is my first priority and the greatest gift you can offer, as we trust God to open hearts and provide spiritual transformation.</p>
-        <p style="font-size: 1.1rem; margin-bottom: 2.5rem;">Financial support is also a significant help in sustaining this local ministry. Your contributions allow us to provide essential meals, groceries, and transportation for students, showing them the love of Christ through practical service.</p>
-        <a href="https://forms.gle/dR1DvHSd4gGeciC96" class="btn">Partner Through Prayer & Support</a>
+        <h2>Partner With Us</h2>
+        <p>Above all, we ask for your prayers as we serve the students in Bridgeport. Prayer is our first priority as we trust God to open hearts and transform lives.</p>
+        <p>Your support allows us to sustain this local ministry—covering essential meals, groceries, and transportation. Join our prayer team or give a financial gift below.</p>
+        
+        <div class="btn-group">
+            <a href="YOUR_GOOGLE_FORM_LINK" class="btn btn-partner">Join Our Prayer Team</a>
+            <a href="https://internationalstudents.org/team/amith-pasam/" class="btn btn-give" target="_blank">Give a Financial Gift</a>
+        </div>
     </section>
 
     <div class="footer">
-        © 2026 Amith Samuel Pasam | ISI & Bridges
+        © 2026 Amith & Nicole | ISI & Bridges
     </div>
 </div>
 
 <script>
     const bgHandler = document.getElementById('bg-handler');
     const sections = document.querySelectorAll('.reveal');
-
     function updateBackground() {
         let currentBg = "";
         sections.forEach(section => {
@@ -173,13 +160,11 @@
                 section.classList.add('active');
             }
         });
-
         if (currentBg) {
             bgHandler.style.backgroundImage = `url('${currentBg}')`;
             bgHandler.classList.add('active');
         }
     }
-
     window.addEventListener('scroll', updateBackground);
     window.addEventListener('load', updateBackground);
     updateBackground();
